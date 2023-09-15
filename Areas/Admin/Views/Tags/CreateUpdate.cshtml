@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+    string Name = Model != null ? Model.Name : "";
+}
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Add Edit Tag</h3></div>
+                    <div class="card-body">
+                        <form method="post" action="@ViewBag.action">
+                            <div class="form-group pt-2">
+                                <label for="inputEmail">Name</label>
+                                <input class="form-control" name="Name" id="inputEmail" type="text" value="@Name" required>
+                            </div>
+                            <div class="row pt-3">
+                                <div class="col-lg-6 pb-4 pb-lg-0">
+                                    <div class="be-checkbox custom-control custom-checkbox">
+                                        <input class="custom-control-input" type="checkbox" id="check1">
+                                        <label class="custom-control-label" for="check1">Remember me</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="text-right">
+                                        <input type="submit" value="Process" class="btn btn-primary">
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+

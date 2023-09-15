@@ -1,0 +1,63 @@
+﻿@*nhan dien cac file trong thu muc Models*@
+@using project.Models
+@using X.PagedList.Mvc.Core
+@*khai bao kieu du lieu cua Model*@
+@model X.PagedList.IPagedList<ItemMenu>
+@*doi tuong de goi ham hien thi phan trang*@
+
+@{
+    //import file Layout.cshtml vao day
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+
+<main>
+    <div style="margin-bottom:5px;">
+        <a href="/Admin/Menus/Create" class="btn btn-primary">Create</a>
+    </div>
+    <div class="container-fluid px-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                DataTable Example
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Controller</th>
+                            <th>Link</th>
+                            <th>Arrange</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Controller</th>
+                            <th>Link</th>
+                            <th>Arrange</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.ControllerName</td>
+                                <td>@item.Link</td>
+                                <td style="text-align:center;">@item.Arrange</td>
+                                <td style="text-align:center;">
+                                    <a href="/Admin/Menus/Update/@item.Id">Update</a>&nbsp;
+                                    <a href="/Admin/Menus/Delete/@item.Id" onclick="return window.confirm('Are you sure?');">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

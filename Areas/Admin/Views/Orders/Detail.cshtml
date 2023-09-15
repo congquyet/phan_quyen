@@ -1,0 +1,85 @@
+﻿@{
+    //load file Layout.cshtml vao day
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@using project.Models
+@using System.IO
+@functions{
+    public MyDbContext db = new MyDbContext();
+    public ItemCustomer GetCustomers(int _CustomerId)
+    {
+        //lay mot ban ghi
+        ItemCustomer record = db.Customers.Where(item => item.Id == _CustomerId).FirstOrDefault();
+        return record != null ? record : new ItemCustomer();
+    }
+    public ItemOrder GetOrders(int _OrderId)
+    {
+        //lay mot ban ghi
+        ItemOrder record = db.Orders.Where(item => item.Id == _OrderId).FirstOrDefault();
+        return record != null ? record : new ItemOrder();
+    }
+    public ItemProduct GetProducts(int _ProductId)
+    {
+        //lay mot ban ghi
+        ItemProduct record = db.Products.Where(item => item.Id == _ProductId).FirstOrDefault();
+        return record != null ? record : new ItemProduct();
+    }
+}
+<main>
+    @{
+        ItemOrder recordOrders = GetOrders(ViewBag.OrderId);
+    }
+    <div style="margin-bottom:5px;">
+        <a href="/Admin/Orders" class="btn btn-danger">Quay lại</a>&nbsp;&nbsp;
+        @if (recordOrders.Status == 0)
+        {
+            <a href="/Admin/Orders/Delivery/@ViewBag.OrderId" class="btn btn-primary">Giao hàng</a>
+        }
+    </div>
+    <div class="container-fluid px-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                DataTable Example
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            ItemProduct recordProducts = GetProducts(item.ProductId);
+                            <tr>
+                                <td>
+                                    @if (recordProducts.Photo != null && File.Exists(Directory.GetCurrentDirectory() + "\\wwwroot\\Upload\\Products\\" + recordProducts.Photo))
+                                    {
+                                        <img src="~/Upload/Products/@recordProducts.Photo" style="width:100px;" />
+                                    }
+                                </td>
+                                <td>@recordProducts.Name</td>
+                                <td>@string.Format("{0:#,#.}", (recordProducts.Price * recordProducts.Discount) / 100) đ</td>
+                                <td style="text-align:center;">@item.Quantity</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+

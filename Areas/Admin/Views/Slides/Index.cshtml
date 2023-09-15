@@ -1,0 +1,65 @@
+﻿@{
+    //load file Layout.cshtml vao day
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@* de phan trang thi phai using cac doi tuong sau *@
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@* doi tuong thao tac file *@
+@using System.IO
+@* nhin thay file MyDbContext *@
+@using project.Models
+@functions{
+    public MyDbContext db = new MyDbContext();
+}
+<main>
+    <div style="margin-bottom:5px;">
+        <a href="/Admin/Slides/Create" class="btn btn-primary">Add slide</a>
+    </div>
+    <div class="container-fluid px-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                List slide
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @* File.Exists -> kiem tra file co ton tai khong *@
+                                    @* Directory.GetCurrentDirectory() -> lay duong dan thu muc *@
+                                    @if (item.Photo != null && File.Exists(Directory.GetCurrentDirectory() + "\\wwwroot\\Upload\\Slides\\" + item.Photo))
+                                    {
+                                        <img src="~/Upload/Slides/@item.Photo" style="width:100px;" />
+                                    }
+                                </td>
+                                <td>@item.Name</td>
+                                <td style="text-align:center;">
+                                    <a href="/Admin/Slides/Update/@item.Id">Edit</a>&nbsp;
+                                    <a href="/Admin/Slides/Delete/@item.Id" onclick="return window.confirm('Are you sure?');">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

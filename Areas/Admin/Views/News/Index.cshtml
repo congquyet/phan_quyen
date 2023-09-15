@@ -1,0 +1,71 @@
+﻿@*nhan dien cac file trong thu muc Models*@
+@using project.Models
+@using X.PagedList.Mvc.Core
+@*khai bao kieu du lieu cua Model*@
+@model X.PagedList.IPagedList<ItemNews>
+@*doi tuong de goi ham hien thi phan trang*@
+
+@{
+    //import file Layout.cshtml vao day
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+<main>
+    <div style="margin-bottom:5px;">
+        <a href="/Admin/News/Create" class="btn btn-primary">Add new</a>
+    </div>
+    <div class="container-fluid px-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                List News
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Hot</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Hot</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @*
+                                File.Exists(duongdan) tra ve true neu duongdan ton tai, nguoc lai tra ve false
+                                *@
+                                    @if (!String.IsNullOrEmpty(item.Photo))
+                                    {
+                                        <img src="~/Upload/News/@item.Photo" style="width:100px;">
+                                    }
+                                </td>
+                                <td>@item.Name</td>
+                                <td style="text-align:center;">
+                                    @if (item.Hot == 1)
+                                    {
+                                        <span class="fa fa-check"></span>
+                                    }
+                                </td>
+                                <td style="text-align:center;">
+                                    <a href="/Admin/News/Update/@item.Id">Update</a>&nbsp;
+                                    <a href="/Admin/News/Delete/@item.Id" onclick="return window.confirm('Are you sure?');">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

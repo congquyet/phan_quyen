@@ -1,0 +1,101 @@
+﻿@*nhan dien cac file trong thu muc Models*@
+@using project.Models
+@using X.PagedList.Mvc.Core
+@*khai bao kieu du lieu cua Model*@
+@model X.PagedList.IPagedList<ItemProduct>
+@*doi tuong de goi ham hien thi phan trang*@
+
+@{
+    //import file Layout.cshtml vao day
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@functions{
+    public MyDbContext db = new MyDbContext();
+    public string GetCategory(int _ProductId)
+    {
+        var record = (from item_category in db.Categories join item_category_product in db.CategoriesProducts on item_category.Id equals item_category_product.CategoryId join item_product in db.Products on item_category_product.ProductId equals item_product.Id where item_product.Id == _ProductId select item_category).ToList();
+        string str = "";
+        foreach(var item in record)
+        {
+            str += "<div>" + item.Name + "</div>";
+        }
+        return str;
+    }
+    public string GetTag(int _ProductId)
+    {
+        var record = (from item_tag in db.Tags join item_tag_product in db.TagsProducts on item_tag.Id equals item_tag_product.TagId join item_product in db.Products on item_tag_product.ProductId equals item_product.Id where item_product.Id == _ProductId select item_tag).ToList();
+        string str = "";
+        foreach (var item in record)
+        {
+            str += "<div>" + item.Name + "</div>";
+        }
+        return str;
+    }
+}
+
+<main>
+    <div style="margin-bottom:5px;">
+        <a href="/Admin/Products/Create" class="btn btn-primary">Create</a>
+    </div>
+    <div class="container-fluid px-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                DataTable Example
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th></th>
+                            <th></th>
+                            <th>Hot</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th></th>
+                            <th></th>
+                            <th>Hot</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @*
+                                File.Exists(duongdan) tra ve true neu duongdan ton tai, nguoc lai tra ve false
+                                *@
+                                    @if (!String.IsNullOrEmpty(item.Photo))
+                                    {
+                                        <img src="~/Upload/Products/@item.Photo" style="width:100px;">
+                                    }
+                                </td>
+                                <td>@item.Name</td>
+                                <td>@Html.Raw(GetCategory(item.Id))</td>
+                                <td>@Html.Raw(GetTag(item.Id))</td>
+                                <td style="text-align:center;">
+                                    @if (item.Hot == 1)
+                                    {
+                                        <span class="fa fa-check"></span>
+                                    }
+                                </td>
+                                <td style="text-align:center;">
+                                    <a href="/Admin/Products/Update/@item.Id">Update</a>&nbsp;
+                                    <a href="/Admin/Products/Delete/@item.Id" onclick="return window.confirm('Are you sure?');">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

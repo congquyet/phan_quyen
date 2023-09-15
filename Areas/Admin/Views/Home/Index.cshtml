@@ -1,0 +1,68 @@
+﻿@{
+    //load file Layout.cshtml vao day
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@* de phan trang thi phai using cac doi tuong sau *@
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@* doi tuong thao tac file *@
+@using System.IO
+@* nhin thay file MyDbContext *@
+@using project.Models
+@functions {
+    public MyDbContext db = new MyDbContext();
+    public double Sum(int _month)
+    {
+        List<ItemOrder> listRecord = db.Orders.Where(item => item.Status == 1 && item.Create.Month == _month).OrderByDescending(item => item.Id).ToList();
+        double sum = 0;
+        foreach (ItemOrder item in listRecord)
+        {
+            sum += item.Price;
+        }
+        return sum;
+    }
+    public int CountOder(int _month)
+    {
+        List<ItemOrder> listRecord = db.Orders.Where(item => item.Status == 1 && item.Create.Month == _month).OrderByDescending(item => item.Id).ToList();
+        return listRecord.Count();
+    }
+}
+<main>
+    <div class="container-fluid px-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                DataTable Example
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Moths</th>
+                            <th>Total oder </th>
+                            <th>Revenue</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Moths</th>
+                            <th>Total oder </th>
+                            <th>Revenue</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <tr>
+                                <td>@i</td>
+                                <td>@CountOder(i)</td>
+                                <td> @string.Format("{0:#,#.}", Sum(i))</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

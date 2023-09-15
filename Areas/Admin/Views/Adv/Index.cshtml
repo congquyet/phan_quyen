@@ -1,0 +1,87 @@
+﻿@{
+    //load file Layout.cshtml vao day
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@* de phan trang thi phai using cac doi tuong sau *@
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@* doi tuong thao tac file *@
+@using System.IO
+@* nhin thay file MyDbContext *@
+@using project.Models
+
+<main>
+    <div style="margin-bottom:5px;">
+        <a href="/Admin/Adv/Create" class="btn btn-primary">Add Adv</a>
+    </div>
+    <div class="container-fluid px-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                List Adv
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @* File.Exists -> kiem tra file co ton tai khong *@
+                                    @* Directory.GetCurrentDirectory() -> lay duong dan thu muc *@
+                                    @if (!String.IsNullOrEmpty(item.Photo))
+                                    {
+                                        <img src="Upload/Adv/@item.Photo" style="width:100px;">
+                                    }
+                                </td>
+                                <td>@item.Name</td>
+                                <td>
+                                    @if (item.Position == 1)
+                                    {
+                                        <text>Trái (Dưới slide show)</text>
+                                    }
+                                    @if (item.Position == 2)
+                                    {
+                                        <text>Phải (Dưới slide show)</text>
+                                    }
+                                    @if (item.Position == 3)
+                                    {
+                                        <text>Trang sản phẩm - Banner</text>
+                                    }
+                                    @if (item.Position == 4)
+                                    {
+                                        <text>Trang sản phẩm - Dưới TAG</text>
+                                    }
+                                    @if (item.Position == 5)
+                                    {
+                                        <text>Trang sản phẩm - Dưới Popular products</text>
+                                    }
+                                </td>
+                                <td style="text-align:center;">
+                                    <a href="/Admin/Adv/Update/@item.Id">Edit</a>&nbsp;
+                                    <a href="/Admin/Adv/Delete/@item.Id" onclick="return window.confirm('Are you sure?');">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,285 @@
+﻿@using project.Models
+@functions {
+	public MyDbContext db = new MyDbContext();
+	//liet ke cac danh muc
+	public List<ItemCategory> Categories(int _ParentId)
+	{
+		List<ItemCategory> list_record = db.Categories.Where(item => item.ParentId == _ParentId).OrderByDescending(item => item.Id).ToList();
+		return list_record;
+	}
+	int GetProductCount(int _CategoryId)
+	{
+		var record = (from item_category in db.Categories join item_category_product in db.CategoriesProducts on item_category.Id equals item_category_product.CategoryId join item_product in db.Products on item_category_product.ProductId equals item_product.Id where item_category.Id == _CategoryId select item_product).ToList();
+		return record.Count;
+	}
+	public List<ItemProduct> PopularProducts()
+	{
+		var list_record = db.Products.OrderByDescending(item => item.Id).Skip(0).Take(5).ToList();
+		return list_record;
+	}
+	//lay danh sach tag
+	public List<ItemTag> GetTags()
+	{
+		var list_record = db.Tags.OrderByDescending(item => item.Id).ToList();
+		return list_record;
+	}
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from htmlbeans.com/html/botanical/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jul 2023 09:55:30 GMT -->
+<head>
+	<!-- set the encoding of your site -->
+	<meta charset="utf-8">
+	<!-- set the Compatible of your site -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- set the page title -->
+	<title>Botanical - HTML5 Ecommerce Template</title>
+	<!-- include the site Google Fonts stylesheet -->
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700%7CRoboto:300,400,500,700,900&amp;display=swap" rel="stylesheet">
+	<!-- include the site bootstrap stylesheet -->
+	<link rel="stylesheet" href="~/Frontend/css/bootstrap.css">
+	<!-- include the site fontawesome stylesheet -->
+	<link rel="stylesheet" href="~/Frontend/css/fontawesome.css">
+	<!-- include the site stylesheet -->
+	<link rel="stylesheet" href="~/Frontend/style.css">
+	<!-- include theme plugins setting stylesheet -->
+	<link rel="stylesheet" href="~/Frontend/css/plugins.css">
+	<!-- include theme color setting stylesheet -->
+	<link rel="stylesheet" href="~/Frontend/css/color.css">
+	<!-- include theme responsive setting stylesheet -->
+	<link rel="stylesheet" href="~/Frontend/css/responsive.css">
+</head>
+<body>
+	<!--
+		<!--Start of Tawk.to Script-->
+	<script type="text/javascript">
+		var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+		(function () {
+			var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+			s1.async = true;
+			s1.src = 'https://embed.tawk.to/64df5ae194cf5d49dc6b26fb/1h847m0m4';
+			s1.charset = 'UTF-8';
+			s1.setAttribute('crossorigin', '*');
+			s0.parentNode.insertBefore(s1, s0);
+		})();
+	</script>
+	<!--End of Tawk.to Script-->
+	<!-- pageWrapper -->
+	<div id="pageWrapper">
+		<!-- header -->
+		@* import file header.cshtml vao day *@
+		@Html.Partial("~/Views/Shared/Header2.cshtml")
+		<!-- main -->
+			<!-- introBannerHolder -->
+		<main>
+			<section class="introBannerHolder d-flex w-100 bgCover" style="background-image: url(/Frontend/images/b-bg7.jpg);">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-6 text-center">
+							<h1 class="headingIV fwEbold playfair mb-4">Shop</h1>
+							<ul class="list-unstyled breadCrumbs d-flex justify-content-center">
+								<li class="mr-2"><a href="/Home">Home</a></li>
+								<li class="mr-2">/</li>
+								<li class="active">Shop</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- twoColumns -->
+			<div class="twoColumns container pt-lg-23 pb-lg-20 pt-md-16 pb-md-4 pt-10 pb-4">
+				<div class="row">
+					<div class="col-12 col-lg-9 order-lg-3">
+						<!-- content -->
+						@RenderBody();
+					</div>
+					<div class="col-12 col-lg-3 order-lg-1">
+						<!-- sidebar -->
+						<aside id="sidebar">
+							<!-- widget -->
+							<section class="widget overflow-hidden mb-9">
+								<form action="javascript:void(0);" class="searchForm position-relative border">
+									<fieldset>
+										<input type="search"id="search" class="form-control" placeholder="Search product..." required>
+										<button onclick="location.href='/Products/SearchName?key='+document.getElementById('search').value;" class="position-absolute"><i class="icon-search"></i></button>
+									</fieldset>
+								</form>
+							</section>
+							<!-- widget -->
+							<section class="widget overflow-hidden mb-9">
+								<h3 class="headingVII fwEbold text-uppercase mb-5">PRODUCT CATEGORIES</h3>
+								<ul class="list-unstyled categoryList mb-0">
+									@{
+										//lay cac danh muc cha
+										List<ItemCategory> list_parent_categories = Categories(0);
+									}
+									@foreach (var item in list_parent_categories)
+									{
+										<li class="mb-5 overflow-hidden">
+											<a href="/Products/Category/@item.Id" class="cate-link">@item.Name <span class="num border float-right">@GetProductCount(item.Id)</span></a>
+											@{
+												List<ItemCategory> list_sub_categories = Categories(item.Id);
+											}
+											@if (list_sub_categories.Count > 0)
+											{
+												<ul class="list-unstyled categoryList mb-0">
+													@foreach (var subItem in list_sub_categories)
+													{
+														<li class="mb-5 overflow-hidden" style="margin-top:10px"><a href="/Products/Category/@subItem.Id" class="cate-link" style="margin-left:20px">@subItem.Name <span class="num border float-right">@GetProductCount(subItem.Id)</span></a></li>
+													}
+
+												</ul>
+											}
+										</li>
+									}
+
+								</ul>
+							</section>
+							<!-- widget -->
+							<section class="widget mb-9">
+								<h3 class="headingVII fwEbold text-uppercase mb-6">Filter by price</h3>
+								<!-- filter ranger form -->
+								<form action="javascript:void(0);" class="filter-ranger-form">
+									<div id="slider-range"></div>
+									<input type="hidden" id="amount1" name="amount1">
+									<input type="hidden" id="amount2" name="amount2">
+									<div class="get-results-wrap d-flex align-items-center justify-content-between">
+										<button onclick="location.href='/Products/Search?amount1='+document.getElementById('amount1').value+'&amount2='+document.getElementById('amount2').value;" type="button" class="btn btnTheme btn-shop fwEbold md-round px-3 pt-1 pb-2 text-uppercase">Filter</button>
+										<p id="amount" class="mb-0"></p>
+									</div>
+								</form>
+							</section>
+							<!-- widget -->
+							<section class="widget mb-9">
+								<h3 class="headingVII fwEbold text-uppercase mb-6">top rate</h3>
+								<ul class="list-unstyled recentListHolder mb-0 overflow-hidden">
+									@{
+										var list_products = PopularProducts();
+									}
+									@foreach (var item in list_products)
+									{
+										<li class="mb-6 d-flex flex-nowrap">
+											<div class="alignleft">
+												<a href="/Products/Detail/@item.Id"><img src="~/Upload/Products/@item.Photo" alt="image description" class="img-fluid"></a>
+											</div>
+											<div class="description-wrap pl-1">
+												<h4 class="headingVII mb-1"><a href="/Products/Detail/@item.Id">@item.Name</a></h4>
+												<strong class="price fwEbold d-block;">@item.Price $</strong>
+											</div>
+										</li>
+									}
+								</ul>
+							</section>
+							<!-- widget -->
+							<section class="widget mb-9">
+								<h3 class="headingVII fwEbold text-uppercase mb-5">product tags</h3>
+								<ul class="list-unstyled tagNavList d-flex flex-wrap mb-0">
+									@{
+										var list_tags = GetTags();
+									}
+									@foreach (ItemTag item_tag in list_tags)
+									{
+										string active = "";
+										if (!string.IsNullOrEmpty(Context.Request.Query["tag_id"]) && Convert.ToInt32(Context.Request.Query["tag_id"]) == item_tag.Id)
+										{
+											active = "active";
+										}
+										<li class="text-center"><a href="/Products/Tag?tag_id=@item_tag.Id" class="md-round d-block">@item_tag.Name</a></li>
+									}
+								</ul>
+							</section>
+						</aside>
+					</div>
+				</div>
+			</div>
+			<div class="container mb-lg-24 mb-md-16 mb-10">
+				<!-- subscribeSecBlock -->
+				<section class="subscribeSecBlock bgCover col-12 pt-lg-24 pb-lg-12 pt-md-16 pb-md-8 py-10" style="background-image: url(/Frontend/images/n-bg3.jpg)">
+					<header class="col-12 mainHeader mb-9 text-center">
+						<h1 class="headingIV playfair fwEblod mb-4">Subscribe Our Newsletter</h1>
+						<span class="headerBorder d-block mb-5"><img src="~/Frontend/images/hbdr.png" alt="Header Border" class="img-fluid img-bdr"></span>
+						<p class="mb-6">Enter Your email address to join our mailing list and keep yourself update</p>
+					</header>
+					<form class="emailForm1 mx-auto overflow-hidden d-flex flex-wrap">
+						<input type="email" class="form-control px-4 border-0" placeholder="Enter your mail...">
+						<button type="submit" class="btn btnTheme btnShop fwEbold text-white py-3 px-4 py-md-3 px-md-4">Shop Now <i class="fas fa-arrow-right ml-2"></i></button>
+					</form>
+				</section>
+			</div>
+			<!-- footerHolder -->
+			<aside class="footerHolder overflow-hidden bg-lightGray pt-xl-23 pb-xl-8 pt-lg-10 pb-lg-8 pt-md-12 pb-md-8 pt-10">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-sm-6 col-lg-4 mb-lg-0 mb-4">
+							<h3 class="headingVI fwEbold text-uppercase mb-7">Contact Us</h3>
+							<ul class="list-unstyled footerContactList mb-3">
+								<li class="mb-3 d-flex flex-nowrap pr-xl-20 pr-0"><span class="icon icon-place mr-3"></span> <address class="fwEbold m-0">Address: London Oxford Street, 012 United Kingdom.</address></li>
+								<li class="mb-3 d-flex flex-nowrap"><span class="icon icon-phone mr-3"></span> <span class="leftAlign">Phone : <a href="javascript:void(0);">(+032) 3456 7890</a></span></li>
+								<li class="email d-flex flex-nowrap"><span class="icon icon-email mr-2"></span> <span class="leftAlign">Email:  <a href="javascript:void(0);">Botanicalstore@gmail.com</a></span></li>
+							</ul>
+							<ul class="list-unstyled followSocailNetwork d-flex flex-nowrap">
+								<li class="fwEbold mr-xl-11 mr-md-8 mr-3">Follow  us:</li>
+								<li class="mr-xl-6 mr-md-5 mr-2"><a href="javascript:void(0);" class="fab fa-facebook-f"></a></li>
+								<li class="mr-xl-6 mr-md-5 mr-2"><a href="javascript:void(0);" class="fab fa-twitter"></a></li>
+								<li class="mr-xl-6 mr-md-5 mr-2"><a href="javascript:void(0);" class="fab fa-pinterest"></a></li>
+								<li class="mr-2"><a href="javascript:void(0);" class="fab fa-google-plus-g"></a></li>
+							</ul>
+						</div>
+						<div class="col-12 col-sm-6 col-lg-3 pl-xl-14 mb-lg-0 mb-4">
+							<h3 class="headingVI fwEbold text-uppercase mb-6">Information</h3>
+							<ul class="list-unstyled footerNavList">
+								<li class="mb-1"><a href="javascript:void(0);">New Products</a></li>
+								<li class="mb-2"><a href="javascript:void(0);">Top Sellers</a></li>
+								<li class="mb-2"><a href="javascript:void(0);">Our Blog</a></li>
+								<li class="mb-2"><a href="javascript:void(0);">About Our Shop</a></li>
+								<li><a href="javascript:void(0);">Privacy policy</a></li>
+							</ul>
+						</div>
+						<div class="col-12 col-sm-6 col-lg-3 pl-xl-12 mb-lg-0 mb-4">
+							<h3 class="headingVI fwEbold text-uppercase mb-7">My Account</h3>
+							<ul class="list-unstyled footerNavList">
+								<li class="mb-1"><a href="javascript:void(0);">My account</a></li>
+								<li class="mb-2"><a href="javascript:void(0);">Discount</a></li>
+								<li class="mb-2"><a href="javascript:void(0);">Orders history</a></li>
+								<li><a href="javascript:void(0);">Personal information</a></li>
+							</ul>
+						</div>
+						<div class="col-12 col-sm-6 col-lg-2 pl-xl-18 mb-lg-0 mb-4">
+							<h3 class="headingVI fwEbold text-uppercase mb-5">PRODUCTS</h3>
+							<ul class="list-unstyled footerNavList">
+								<li class="mb-2"><a href="javascript:void(0);">Delivery</a></li>
+								<li class="mb-2"><a href="javascript:void(0);">Legal notice</a></li>
+								<li class="mb-2"><a href="javascript:void(0);">Prices drop</a></li>
+								<li class="mb-2"><a href="javascript:void(0);">New products</a></li>
+								<li><a href="javascript:void(0);">Best sales</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</aside>
+		</main>
+		<!-- footer -->
+		<footer id="footer" class="overflow-hidden bg-dark">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 copyRightHolder v-II text-center pt-md-3 pb-md-4 py-2">
+						<p class="mb-0">Coppyright 2019 by <a href="javascript:void(0);">Botanical Store</a> - All right reserved</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<!-- include jQuery library -->
+	<script src="~/Frontend/js/jquery-3.4.1.min.js"></script>
+	<!-- include bootstrap popper JavaScript -->
+	<script src="~/Frontend/js/popper.min.js"></script>
+	<!-- include bootstrap JavaScript -->
+	<script src="~/Frontend/js/bootstrap.min.js"></script>
+	<!-- include custom JavaScript -->
+	<script src="~/Frontend/js/jqueryCustome.js"></script>
+</body>
+
+<!-- Mirrored from htmlbeans.com/html/botanical/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jul 2023 09:55:35 GMT -->
+</html>

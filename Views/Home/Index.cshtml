@@ -1,0 +1,415 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+@using project.Models
+@using project.MyClass
+@functions {
+	public MyDbContext db = new MyDbContext();
+	//san pham giam gia -> Discount > 0 (table Products)
+	public List<ItemProduct> DisCountProducts()
+	{
+		List<ItemProduct> list_record = db.Products.Where(item => item.Discount > 0).Skip(0).Take(5).OrderByDescending(item => item.Id).ToList();
+		return list_record;
+	}
+	//san pham noi bat -> Hot = 1 (table Products)
+	public List<ItemProduct> HotProducts()
+	{
+		List<ItemProduct> list_record = db.Products.Where(item => item.Hot == 1).Skip(0).Take(5).OrderByDescending(item => item.Id).ToList();
+		return list_record;
+	}
+	//liet ke cac danh muc hien thi o trang chut -> DisplayHomePage = 1 (table Products)
+	public List<ItemCategory> Categories()
+	{
+		List<ItemCategory> list_record = db.Categories.Where(item => item.DisplayHomePage == 1).OrderByDescending(item => item.Id).ToList();
+		return list_record;
+	}
+	//Moi danh muc liet ke 8 san pham moi nhat
+	public List<ItemProduct> Products(int _CategoryId)
+	{
+		List<ItemProduct> list_record = (from item_category in db.Categories join item_category_product in db.CategoriesProducts on item_category.Id equals item_category_product.CategoryId join item_product in db.Products on item_category_product.ProductId equals item_product.Id where item_category.Id == _CategoryId select item_product).Skip(0).Take(8).ToList();
+		//.Skip(0).Take(8) => từ bản ghi đầu tiên (skip(0)) lấy 8 bản ghi (take(8))
+		return list_record;
+	}
+	//tin tuc noi bat -> Hot = 1 (table Products)
+	public List<ItemNews> HotNews()
+	{
+		List<ItemNews> list_record = db.News.Where(item => item.Hot == 1).OrderByDescending(item => item.Id).Skip(0).Take(8).ToList();
+		return list_record;
+	}
+	public List<ItemOrderDetail> Order()
+	{
+		List<ItemOrderDetail> list_record = db.OrdersDetail.Where(item => item.Quantity > 0).OrderByDescending(item => item.Id).ToList();
+		return list_record;
+	}
+	public List<ItemProduct> OrdersProducts(int _OrderId)
+	{
+		List<ItemProduct> list_record = (from item_order in db.Orders join item_order_product in db.OrdersDetail on item_order.Id equals item_order_product.OrderId join item_product in db.Products on item_order_product.ProductId equals item_product.Id where item_order.Id == _OrderId select item_product).Skip(0).Take(8).ToList();
+		//.Skip(0).Take(8) => từ bản ghi đầu tiên (skip(0)) lấy 8 bản ghi (take(8))
+		return list_record;
+	}
+	
+}
+<!-- introBlock -->
+<section class="introBlock position-relative">
+	<div class="slick-fade">
+		@{
+			var slide = Slideshow.GetSlide();
+		}
+		@foreach(var item in slide)
+		{
+			<div>
+				<div class="align w-100 d-flex align-items-center bgCover" style="background-image: url(/Frontend/images/b-bg2.jpg);">
+					<!-- holder -->
+					<div class="container position-relative holder pt-xl-10 pt-0">
+						<!-- py-12 pt-lg-30 pb-lg-25 -->
+						<div class="row">
+							<div class="imgHolder2">
+								<img src="~/Upload/Slides/@item.Photo" alt="image description" class="img-fluid w-10">
+							</div>
+							<div class="col-12 col-xl-7">
+								<div class="txtwrap pr-lg-10">
+									<span class="title d-block text-uppercase fwEbold position-relative pl-2 mb-lg-5 mb-sm-3 mb-1">wellcome to botanical</span>
+									<h2 class="fwEbold position-relative mb-xl-7 mb-lg-5">Plants Gonna Make  <span class="text-break d-block">People Happy.</span></h2>
+									<p class="mb-xl-15 mb-lg-10">Lorem ipsum is simply dummy text of the printing and typesetting industry.</p>
+									<a href="shop.html" class="btn btnTheme btnShop fwEbold text-white md-round py-2 px-3 py-md-3 px-md-4">Shop Now <i class="fas fa-arrow-right ml-2"></i></a>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+	<div class="slickNavigatorsWrap">
+		<a href="#" class="slick-prev"><i class="icon-leftarrow"></i></a>
+		<a href="#" class="slick-next"><i class="icon-rightarrow"></i></a>
+	</div>
+</section>
+<!-- chooseUs-sec -->
+<section class="chooseUs-sec container pt-xl-22 pt-lg-20 pt-md-16 pt-10 pb-xl-12 pb-md-7 pb-2">
+	<div class="row">
+		<div class="col-12 col-lg-6 mb-lg-0 mb-4">
+			<img src="~/Frontend/images/img01.jpg" alt="image description" class="img-fluid">
+		</div>
+		<div class="col-12 col-lg-6 pr-4">
+			<h2 class="headingII fwEbold playfair position-relative mb-6 pb-5">Why choose us ?</h2>
+			<p class="mb-xl-14 mb-lg-10">Lorem ipsum is simply dummy text of the printing and typesetting industry, lorem ipsum has been the industry's standard dummy text ever since the 1500s  when an unknown printer took a galley ... <a href="javascript:void(0);" class="btnMore"><i>Learn More</i></a></p>
+			<!-- chooseList -->
+			<ul class="list-unstyled chooseList">
+				<li class="d-flex justify-content-start mb-xl-7 mb-lg-5 mb-3">
+					<span class="icon icon-plant"></span>
+					<div class="alignLeft d-flex justify-content-start flex-wrap">
+						<h3 class="headingIII fwEbold mb-2">Hand Planted</h3>
+						<p>There are many variations of passages of lorem ipsum available, but the majority have suffered alteration in some form.</p>
+					</div>
+				</li>
+				<li class="d-flex justify-content-start mb-xl-6 mb-lg-5 mb-4">
+					<span class="icon icon-ic-plant"></span>
+					<div class="alignLeft d-flex justify-content-start flex-wrap">
+						<h3 class="headingIII fwEbold mb-2">Natural Sunlight</h3>
+						<p>It is a long established fact that a reader will be distracted by the reable content of a page.</p>
+					</div>
+				</li>
+				<li class="d-flex justify-content-start">
+					<span class="icon icon-desert"></span>
+					<div class="alignLeft d-flex justify-content-start flex-wrap">
+						<h3 class="headingIII fwEbold mb-2">Clean Air</h3>
+						<p>There are many variations of passages of lorem ipsum available, but the majority have suffered.</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<!-- featureSec -->
+<section class="featureSec container-fluid overflow-hidden pt-xl-12 pt-lg-10 pt-md-80 pt-5 pb-xl-10 pb-lg-4 pb-md-2 px-xl-14 px-lg-7">
+	<!-- mainHeader -->
+	<header class="col-12 mainHeader mb-7 text-center">
+		<h1 class="headingIV playfair fwEblod mb-4">Featured Product</h1>
+		<span class="headerBorder d-block mb-md-5 mb-3"><img src="~/Frontend/images/hbdr.png" alt="Header Border" class="img-fluid img-bdr"></span>
+		<p>Lorem ipsum is simply dummy text of the printing and typesetting industry.</p>
+	</header>
+	<div class="col-12 p-0 overflow-hidden d-flex flex-wrap">
+		@{
+			//san pham noi bat
+			var discount_products = DisCountProducts();
+		}
+		@foreach (var item in discount_products)
+		{
+			<div class="featureCol px-3 mb-6">
+				<div class="border">
+					<div class="imgHolder position-relative w-100 overflow-hidden">
+						<img src="~/Upload/Products/@item.Photo" alt="@item.Name" class="img-fluid w-100">
+						<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
+							<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
+							<li class="mr-2 overflow-hidden"><a href="/Cart/Buy/@item.Id" class="icon-cart d-block"></a></li>
+							<li class="mr-2 overflow-hidden"><a href="/Products/Detail/@item.Id" class="icon-eye d-block"></a></li>
+							<li class="overflow-hidden"><a href="javascript:void(0);" class="icon-arrow d-block"></a></li>
+						</ul>
+					</div>
+					<div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
+						<span class="title d-block mb-2"><a href="/Products/Detail/@item.Id">@item.Name</a></span>
+						<span class="price d-block fwEbold">@item.Price $</span>
+					</div>
+				</div>
+			</div>
+		}
+		@{
+			//san pham noi bat
+				var hot_products = HotProducts();
+		}
+		@foreach (var item in hot_products)
+		{
+			<div class="featureCol position-relative px-3 mb-6">
+				<div class="border">
+					<div class="imgHolder position-relative w-100 overflow-hidden">
+						<img src="~/Upload/Products/@item.Photo" alt="@item.Name" class="img-fluid w-100">
+						<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
+							<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
+							<li class="mr-2 overflow-hidden"><a href="/Cart/Buy/@item.Id" class="icon-cart d-block"></a></li>
+							<li class="mr-2 overflow-hidden"><a href="/Products/Detail/@item.Id" class="icon-eye d-block"></a></li>
+							<li class="overflow-hidden"><a href="javascript:void(0);" class="icon-arrow d-block"></a></li>
+						</ul>
+					</div>
+					<div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
+						<span class="title d-block mb-2"><a href="/Products/Detail/@item.Id">@item.Name</a></span>
+						<span class="price d-block fwEbold">@item.Price $</span>
+						<span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block">HOT</span>
+						<span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</section>
+<!-- contactListBlock -->
+<div class="contactListBlock container overflow-hidden pt-xl-8 pt-lg-10 pt-md-8 pt-4 pb-xl-12 pb-lg-10 pb-md-4 pb-1">
+	<div class="row">
+		<div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
+			<!-- contactListColumn -->
+			<div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex">
+				<span class="icon icon-van"></span>
+				<div class="alignLeft pl-2">
+					<strong class="headingV fwEbold d-block mb-1">Free shipping order</strong>
+					<p class="m-0">On orders over  $100</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
+			<!-- contactListColumn -->
+			<div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex">
+				<span class="icon icon-gift"></span>
+				<div class="alignLeft pl-2">
+					<strong class="headingV fwEbold d-block mb-1">Special gift card</strong>
+					<p class="m-0">The perfect gift idea</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
+			<!-- contactListColumn -->
+			<div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-4 px-md-2 px-3 d-flex">
+				<span class="icon icon-recycle"></span>
+				<div class="alignLeft pl-2">
+					<strong class="headingV fwEbold d-block mb-1">Return &amp; exchange</strong>
+					<p class="m-0">Free return within 3 days</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
+			<!-- contactListColumn -->
+			<div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex">
+				<span class="icon icon-call"></span>
+				<div class="alignLeft pl-2">
+					<strong class="headingV fwEbold d-block mb-1">Support 24 / 7</strong>
+					<p class="m-0">Customer support</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- productOfferSec -->
+<div class="productOfferSec container overflow-hidden py-xl-12 py-lg-10 py-md-8 py-5">
+
+	<div class="row">
+		@{
+			var adv1 = Adv.GetAdv(1);
+		}
+		<div class="col-12 col-sm-6 mb-sm-0 mb-2">
+			@foreach(var item1 in adv1)
+			{
+				<a href="/Products/Category" class="w-100"><img src="~/Upload/Adv/@item1.Photo" alt="image description" class="img-fluid"></a>
+			}
+			
+		</div>
+		@{
+			var adv2 = Adv.GetAdv(2);
+		}
+		<div class="col-12 col-sm-6 mb-sm-0 mb-2">
+			@foreach (var item2 in adv2)
+			{
+				<a href="/Products/Category" class="w-100"><img src="~/Upload/Adv/@item2.Photo" alt="image description" class="img-fluid"></a>
+			}
+
+		</div>
+	</div>
+</div>
+<!-- dealSecHolder -->
+<section class="dealSecHolder container-fluid overflow-hidden py-xl-12 py-lg-10 py-md-8 py-5">
+	<!-- mainHeader -->
+	<header class="col-12 mainHeader mb-7 text-center">
+		<h1 class="headingIV playfair fwEblod mb-5">Daily Deal</h1>
+		<span class="headerBorder d-block mb-md-5 mb-3"><img src="~/Frontend/images/hbdr.png" alt="Header Border" class="img-fluid img-bdr"></span>
+		<p class="mb-6">There are many variations of passages of lorem ipsum available.</p>
+		<div id="defaultCountdown" class="comming-timer"></div>
+	</header>
+	<!-- dealSlider -->
+	<div class="dealSlider w-100 px-xl-10 px-lg-5 px-md-2">
+		@{
+			var list_order = Order();
+		}
+		@foreach (var itemOrders in list_order)
+		{
+		
+			var order_products = OrdersProducts(itemOrders.Id);
+			foreach (var item in order_products)
+			{
+				<div>
+					<div class="featureCol position-relative w-100 px-3 mb-sm-8 mb-6">
+						<div class="border">
+							<div class="imgHolder position-relative w-100 overflow-hidden">
+								<img src="~/Upload/Products/@item.Photo" alt="@item.Name" class="img-fluid w-100">
+								<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
+									<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
+									<li class="mr-2 overflow-hidden"><a href="/Cart/Buy/@item.Id" class="icon-cart d-block"></a></li>
+									<li class="mr-2 overflow-hidden"><a href="/Products/Detail/@item.Id" class="icon-eye d-block"></a></li>
+									<li class="overflow-hidden"><a href="javascript:void(0);" class="icon-arrow d-block"></a></li>
+								</ul>
+							</div>
+							<div class="text-center py-5 px-2">
+								<span class="title d-block mb-2"><a href="/Products/Detail/@item.Id">Aliquam Quaerat Voluptatem</a></span>
+								<span class="price d-block fwEbold">@item.Price $</span>
+								@if(@item.Hot==1)
+								{
+									<span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block">HOT</span>
+								}
+								@if(@item.Discount>0){
+									<span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span>
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		}
+	</div>
+</section>
+<!-- partnerSec -->
+<div class="partnerSec container overflow-hidden pt-xl-12 pb-xl-23 pt-lg-10 pt-md-8 pt-5 pb-lg-20 pb-md-16 pb-10">
+	<div class="row">
+		<div class="col-12">
+			<!-- partnerSlider -->
+			<div class="partnerSlider d-flex flex-wrap">
+				<div>
+					<div class="logoColumn d-flex align-items-center justify-content-center">
+						<a href="javascript:void(0);"><img src="~/Frontend/images/p-logo1.png" alt="Partner Logo" class="img-fluid"></a>
+					</div>
+				</div>
+				<div>
+					<div class="logoColumn d-flex align-items-center justify-content-center">
+						<a href="javascript:void(0);"><img src="~/Frontend/images/p-logo2.png" alt="Partner Logo" class="img-fluid"></a>
+					</div>
+				</div>
+				<div>
+					<div class="logoColumn d-flex align-items-center justify-content-center">
+						<a href="javascript:void(0);"><img src="~/Frontend/images/p-logo3.png" alt="Partner Logo" class="img-fluid"></a>
+					</div>
+				</div>
+				<div>
+					<div class="logoColumn d-flex align-items-center justify-content-center">
+						<a href="javascript:void(0);"><img src="~/Frontend/images/p-logo4.png" alt="Partner Logo" class="img-fluid"></a>
+					</div>
+				</div>
+				<div>
+					<div class="logoColumn d-flex align-items-center justify-content-center">
+						<a href="javascript:void(0);"><img src="~/Frontend/images/p-logo5.png" alt="Partner Logo" class="img-fluid"></a>
+					</div>
+				</div>
+				<div>
+					<div class="logoColumn d-flex align-items-center justify-content-center">
+						<a href="javascript:void(0);"><img src="~/Frontend/images/p-logo6.png" alt="Partner Logo" class="img-fluid"></a>
+					</div>
+				</div>
+				<div>
+					<div class="logoColumn d-flex align-items-center justify-content-center">
+						<a href="javascript:void(0);"><img src="~/Frontend/images/p-logo4.png" alt="Partner Logo" class="img-fluid"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid px-xl-20 px-lg-14">
+	<!-- subscribeSecBlock -->
+	<section class="subscribeSecBlock bgCover col-12 pt-xl-24 pb-xl-12 pt-lg-20 pt-md-16 pt-10 pb-md-8 pb-5" style="display:block; background-image: url(/Frontend/images/n-bg.jpg)">
+		<header class="col-12 mainHeader mb-sm-9 mb-6 text-center">
+			<h1 class="headingIV playfair fwEblod mb-4">Subscribe Our Newsletter</h1>
+			<span class="headerBorder d-block mb-md-5 mb-3"><img src="~/Frontend/images/hbdr.png" alt="Header Border" class="img-fluid img-bdr"></span>
+			<p class="mb-sm-6 mb-3">Enter Your email address to join our mailing list and keep yourself update</p>
+		</header>
+		<form class="emailForm1 mx-auto overflow-hidden d-flex flex-wrap">
+			<input type="email" class="form-control px-4 border-0" placeholder="Enter your mail...">
+			<button type="submit" class="btn btnTheme btnShop fwEbold text-white py-3 px-4">Shop Now <i class="fas fa-arrow-right ml-2"></i></button>
+		</form>
+	</section>
+</div>
+<!-- footerHolder -->
+<aside class="footerHolder container-fluid overflow-hidden px-xl-20 px-lg-14 pt-xl-12 pb-xl-8 pt-lg-12 pt-md-8 pt-10 pb-lg-8">
+	<div class="d-flex flex-wrap flex-lg-nowrap">
+		<div class="coll-1 pr-3 mb-sm-4 mb-3 mb-lg-0">
+			<h3 class="headingVI fwEbold text-uppercase mb-7">Contact Us</h3>
+			<ul class="list-unstyled footerContactList mb-3">
+				<li class="mb-3 d-flex flex-nowrap"><span class="icon icon-place mr-3"></span> <address class="fwEbold m-0">Address: London Oxford Street, 012 United Kingdom.</address></li>
+				<li class="mb-3 d-flex flex-nowrap"><span class="icon icon-phone mr-3"></span> <span class="leftAlign">Phone : <a href="javascript:void(0);">(+032) 3456 7890</a></span></li>
+				<li class="email d-flex flex-nowrap"><span class="icon icon-email mr-2"></span> <span class="leftAlign">Email:  <a href="javascript:void(0);">Botanicalstore@gmail.com</a></span></li>
+			</ul>
+			<ul class="list-unstyled followSocailNetwork d-flex flex-nowrap">
+				<li class="fwEbold mr-xl-11 mr-sm-6 mr-4">Follow  us:</li>
+				<li class="mr-xl-6 mr-sm-4 mr-2"><a href="javascript:void(0);" class="fab fa-facebook-f"></a></li>
+				<li class="mr-xl-6 mr-sm-4 mr-2"><a href="javascript:void(0);" class="fab fa-twitter"></a></li>
+				<li class="mr-xl-6 mr-sm-4 mr-2"><a href="javascript:void(0);" class="fab fa-pinterest"></a></li>
+				<li class="mr-2"><a href="javascript:void(0);" class="fab fa-google-plus-g"></a></li>
+			</ul>
+		</div>
+		<div class="coll-2 mb-sm-4 mb-3 mb-lg-0">
+			<h3 class="headingVI fwEbold text-uppercase mb-6">Information</h3>
+			<ul class="list-unstyled footerNavList">
+				<li class="mb-1"><a href="javascript:void(0);">New Products</a></li>
+				<li class="mb-2"><a href="javascript:void(0);">Top Sellers</a></li>
+				<li class="mb-2"><a href="javascript:void(0);">Our Blog</a></li>
+				<li class="mb-2"><a href="javascript:void(0);">About Our Shop</a></li>
+				<li><a href="javascript:void(0);">Privacy policy</a></li>
+			</ul>
+		</div>
+		<div class="coll-3 mb-sm-4 mb-3 mb-lg-0">
+			<h3 class="headingVI fwEbold text-uppercase mb-6">My Account</h3>
+			<ul class="list-unstyled footerNavList">
+				<li class="mb-1"><a href="javascript:void(0);">My account</a></li>
+				<li class="mb-2"><a href="javascript:void(0);">Discount</a></li>
+				<li class="mb-2"><a href="javascript:void(0);">Orders history</a></li>
+				<li><a href="javascript:void(0);">Personal information</a></li>
+			</ul>
+		</div>
+		<div class="coll-4 mb-sm-4 mb-3 mb-lg-0">
+			<h3 class="headingVI fwEbold text-uppercase mb-7 pl-xl-14 pl-lg-10">Popular Tag</h3>
+			<ul class="list-unstyled tagNavList d-flex flex-wrap justify-content-lg-end mb-0">
+				<li class="text-center mb-2 mr-2"><a href="javascript:void(0);" class="md-round d-block py-2 px-2">Trend</a></li>
+				<li class="text-center mb-2"><a href="javascript:void(0);" class="md-round d-block py-2 px-2">Decor</a></li>
+				<li class="text-center mb-2 mr-2"><a href="javascript:void(0);" class="md-round d-block py-2 px-2">Plant</a></li>
+				<li class="text-center mb-2"><a href="javascript:void(0);" class="md-round d-block py-2 px-2">Table tree</a></li>
+				<li class="text-center mb-2 mr-2"><a href="javascript:void(0);" class="md-round d-block py-2 px-2">Bedroom tree</a></li>
+				<li class="text-center mb-2"><a href="javascript:void(0);" class="md-round d-block py-2 px-2">Living room</a></li>
+			</ul>
+		</div>
+	</div>
+</aside>

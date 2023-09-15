@@ -1,0 +1,91 @@
+﻿@{
+    //load file Layout.cshtml vao day
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@* de phan trang thi phai using cac doi tuong sau *@
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@* doi tuong thao tac file *@
+@using System.IO
+@* nhin thay file MyDbContext *@
+@using project.Models
+@functions {
+    public MyDbContext db = new MyDbContext();
+    public ItemCustomer GetCustomers(int _CustomerId)
+    {
+        //lay mot ban ghi
+        ItemCustomer record = db.Customers.Where(item => item.Id == _CustomerId).FirstOrDefault();
+        return record != null ? record : new ItemCustomer();
+    }
+}
+<main>
+    <div class="container-fluid px-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                DataTable Example
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Created</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Created</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            ItemCustomer recordCustomer = GetCustomers(item.CustomerId);
+                            <tr>
+                                <td>@recordCustomer.Name</td>
+                                <td>@recordCustomer.Address</td>
+                                <td>@recordCustomer.Phone</td>
+                                <td>@item.Create.ToString("ddMMyyyy")</td>
+                                <td>@string.Format("{0:#,#.}", item.Price)</td>
+                                <td>
+                                    @if (item.Status == 2)
+                                    {
+                                        <text><label class="label label-warning">Đã hủy đơn hàng</label></text>
+                                    }
+                                    @if (item.Status == 1)
+                                    {
+                                        <text><label class="label label-danger">Đã giao hàng</label></text>
+                                    }
+                                    @if (item.Status == 0)
+                                    {
+                                        <text><label class="label label-primary">Chưa giao hàng</label></text>
+                                    }
+                                </td>
+                                <td style="text-align:center;">
+                                    @if (item.Status == 0)
+                                    {
+                                        <text><a href="/Admin/Orders/Delivery/@item.Id">Giao hàng</a></text>
+                                    }
+                                    &nbsp;&nbsp;
+                                    <a href="/Admin/Orders/Detail/@item.Id">Chi tiết</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

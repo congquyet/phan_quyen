@@ -1,0 +1,107 @@
+﻿@*nhan dien cac file trong thu muc Models*@
+@using project.Models
+@using X.PagedList.Mvc.Core
+@*khai bao kieu du lieu cua Model*@
+@model X.PagedList.IPagedList<ItemProduct>
+@*doi tuong de goi ham hien thi phan trang*@
+
+@{
+	//import file Layout.cshtml vao day
+	Layout = "~/Views/Shared/Layout2.cshtml";
+}
+<article id="content">
+	<header class="show-head d-flex flex-wrap justify-content-between mb-7">
+		<ul class="list-unstyled viewFilterLinks d-flex flex-nowrap align-items-center">
+			<li class="mr-2"><a href="javascript:void(0);" class="active"><i class="fas fa-th-large"></i></a></li>
+			<li class="mr-2"><a href="javascript:void(0);"><i class="fas fa-list"></i></a></li>
+			<li class="mr-2">Showing 1–9 of 24 results</li>
+		</ul>
+		<!-- sortGroup -->
+		<div class="sortGroup">
+			<div class="d-flex flex-nowrap align-items-center">
+				<strong class="groupTitle mr-2">Sort by:</strong>
+				<div class="dropdown">
+					<div class="sort-item orderby ">
+						<select id="order" class="use-chosen dropdown-toggle buttonReset" onchange="sort_order();">
+							<option value="">Default sorting</option>
+							<option value="name-asc">Sort by name a-z</option>
+							<option value="name-desc">Sort by name z-a</option>
+							<option value="price-asc">Sort by price: low to high</option>
+							<option value="price-desc">Sort by price: high to low</option>
+						</select>
+						<script language="javascript">
+							function sort_order() {
+								//lay value cua id=order
+								var get_value = document.getElementById("order").value;
+								//di chuyen den url
+							@if (ViewBag.CategoryId != null && ViewBag.Category == 0)
+							{
+								<text>location.href = "/Products/Category?order=" + get_value; </text>
+							}
+							else
+							{
+								<text>location.href = "/Products/Category/@ViewBag.CategoryId?order=" + get_value; </text>
+							}
+																																																								}
+						</script>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="row">
+		@foreach (var item in Model)
+		{
+			<div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
+				<div class="border">
+					<div class="imgHolder position-relative w-100 overflow-hidden">
+						<img src="~/Upload/Products/@item.Photo" alt="@item.Name" class="img-fluid w-100">
+						<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
+							<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
+							<li class="mr-2 overflow-hidden"><a href="/Cart/Buy/@item.Id" class="icon-cart d-block"></a></li>
+							<li class="mr-2 overflow-hidden"><a href="/Products/Detail/@item.Id" class="icon-eye d-block"></a></li>
+							<li class="overflow-hidden"><a href="javascript:void(0);" class="icon-arrow d-block"></a></li>
+						</ul>
+					</div>
+					<div class="text-center py-5 px-4">
+						<span class="title d-block mb-2"><a href="/Products/Detail/@item.Id">@item.Name</a></span>
+						<span class="price d-block fwEbold"><del>@item.Price $</del>@item.Discount $</span>
+						@if (item.Hot == 1)
+						{
+							<span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block">HOT</span>
+						}
+						<span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span>
+					</div>
+				</div>
+			</div>
+		}
+		<!-- featureCol -->
+		<div class="col-12 pt-3 mb-lg-0 mb-md-6 mb-3">
+			<!-- pagination -->
+			@*
+			<ul class="list-unstyled pagination d-flex justify-content-center align-items-end">
+			<li><a href="javascript:void(0);"><i class="fas fa-chevron-left"></i></a></li>
+			<li class="active"><a href="javascript:void(0);">1</a></li>
+			<li><a href="javascript:void(0);">2</a></li>
+			<li>...</li>
+			<li><a href="javascript:void(0);"><i class="fas fa-chevron-right"></i></a></li>
+			</ul> *@
+			<ul class="page-numbers list-unstyled pagination d-flex justify-content-center align-items-end">
+
+				@* co the su dung ham phan trang co san (giong admin) hoac tu viet phan trang *@
+				@for (int i = 1; i <= Model.PageCount; i++)
+				{
+					string strSelected = "";
+					if (i == Model.PageNumber)
+					{
+						strSelected = "current";
+					}
+
+					<li><a class="page-number-item  @strSelected" href="/Products/Search?page=@i&fromPrice=@ViewBag.fromPrice&toPrice=@ViewBag.toPrice">@i</a></li>
+
+				}
+			</ul>
+		</div>
+	</div>
+</article>

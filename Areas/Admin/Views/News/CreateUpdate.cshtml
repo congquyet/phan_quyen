@@ -1,0 +1,85 @@
+﻿@{
+    //import file Layout.cshtml vao day
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+    //khoi tao cac bien
+    string Name = Model != null ? Model.Name : "";
+    string Description = Model != null ? Model.Description : "";
+    string Content = Model != null ? Model.Content : "";
+}
+
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data" action="@ViewBag.action">
+                            <!-- rows -->
+                            <div class="row" style="margin-top:5px;">
+                                <div class="col-md-2">Name</div>
+                                <div class="col-md-10">
+                                    <input type="text" value="@Name" name="Name" class="form-control" required>
+                                </div>
+                            </div>
+                            <!-- end rows -->
+                            <!-- rows -->
+                            <div class="row" style="margin-top:5px;">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-10">
+                                    @{
+                                        string strChecked = "";
+                                        if (Model != null && Model.Hot == 1)
+                                        {
+                                            strChecked = "checked";
+                                        }
+                                    }
+                                    <input type="checkbox" @strChecked id="Hot" name="Hot"> <label for="Hot">Hot</label>
+                                </div>
+                            </div>
+                            <!-- end rows -->
+                            <!-- rows -->
+                            <div class="row" style="margin-top:5px;">
+                                <div class="col-md-2">Photo</div>
+                                <div class="col-md-10">
+                                    <input type="file" name="Photo">
+                                </div>
+                            </div>
+                            <!-- end rows -->
+                            <!-- rows -->
+                            <div class="row" style="margin-top:5px;">
+                                <div class="col-md-2">Description</div>
+                                <div class="col-md-10">
+                                    <textarea name="Description" id="Description">@Description</textarea>
+                                    <script>
+                                        ClassicEditor.create(document.querySelector('#Description'));
+                                    </script>
+                                </div>
+                            </div>
+                            <!-- end rows -->
+                            <!-- rows -->
+                            <div class="row" style="margin-top:5px;">
+                                <div class="col-md-2">Content</div>
+                                <div class="col-md-10">
+                                    <textarea name="Content" id="Content">@Content</textarea>
+                                    <script>
+                                        ClassicEditor.create(document.querySelector('#Content'));
+                                    </script>
+                                </div>
+                            </div>
+                            <!-- end rows -->
+                            <!-- rows -->
+                            <div class="row" style="margin-top:5px;">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-10">
+                                    <input type="submit" value="Process" class="btn btn-primary">
+                                </div>
+                            </div>
+                            <!-- end rows -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

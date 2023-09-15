@@ -1,0 +1,817 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\project\\wwwroot\\Admin\\assets\\demo\\chart-area-demo.js",
+      "PackagePath": "staticwebassets\\Admin\\assets\\demo\\chart-area-demo.js"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Admin\\assets\\demo\\chart-bar-demo.js",
+      "PackagePath": "staticwebassets\\Admin\\assets\\demo\\chart-bar-demo.js"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Admin\\assets\\demo\\chart-pie-demo.js",
+      "PackagePath": "staticwebassets\\Admin\\assets\\demo\\chart-pie-demo.js"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Admin\\assets\\demo\\datatables-demo.js",
+      "PackagePath": "staticwebassets\\Admin\\assets\\demo\\datatables-demo.js"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Admin\\assets\\img\\error-404-monochrome.svg",
+      "PackagePath": "staticwebassets\\Admin\\assets\\img\\error-404-monochrome.svg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Admin\\css\\AdminLTE.min.css",
+      "PackagePath": "staticwebassets\\Admin\\css\\AdminLTE.min.css"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Admin\\css\\_all-skins.min.css",
+      "PackagePath": "staticwebassets\\Admin\\css\\_all-skins.min.css"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Admin\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\Admin\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Admin\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\Admin\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Admin\\css\\styles.css",
+      "PackagePath": "staticwebassets\\Admin\\css\\styles.css"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Admin\\js\\adminlte.min.js",
+      "PackagePath": "staticwebassets\\Admin\\js\\adminlte.min.js"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Admin\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\Admin\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Admin\\js\\datatables-simple-demo.js",
+      "PackagePath": "staticwebassets\\Admin\\js\\datatables-simple-demo.js"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Admin\\js\\jquery-ui.min.js",
+      "PackagePath": "staticwebassets\\Admin\\js\\jquery-ui.min.js"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Admin\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\Admin\\js\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Admin\\js\\scripts.js",
+      "PackagePath": "staticwebassets\\Admin\\js\\scripts.js"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\Frontend\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\color.css",
+      "PackagePath": "staticwebassets\\Frontend\\css\\color.css"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\fontawesome.css",
+      "PackagePath": "staticwebassets\\Frontend\\css\\fontawesome.css"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\images\\ui-bg_diagonals-thick_18_b81900_40x40.html",
+      "PackagePath": "staticwebassets\\Frontend\\css\\images\\ui-bg_diagonals-thick_18_b81900_40x40.html"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\images\\ui-bg_diagonals-thick_20_666666_40x40.html",
+      "PackagePath": "staticwebassets\\Frontend\\css\\images\\ui-bg_diagonals-thick_20_666666_40x40.html"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\images\\ui-bg_flat_10_000000_40x100.html",
+      "PackagePath": "staticwebassets\\Frontend\\css\\images\\ui-bg_flat_10_000000_40x100.html"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\images\\ui-bg_glass_100_f6f6f6_1x400.html",
+      "PackagePath": "staticwebassets\\Frontend\\css\\images\\ui-bg_glass_100_f6f6f6_1x400.html"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\images\\ui-bg_glass_100_fdf5ce_1x400.html",
+      "PackagePath": "staticwebassets\\Frontend\\css\\images\\ui-bg_glass_100_fdf5ce_1x400.html"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\images\\ui-bg_glass_65_ffffff_1x400.html",
+      "PackagePath": "staticwebassets\\Frontend\\css\\images\\ui-bg_glass_65_ffffff_1x400.html"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\images\\ui-bg_gloss-wave_35_f6a828_500x100.html",
+      "PackagePath": "staticwebassets\\Frontend\\css\\images\\ui-bg_gloss-wave_35_f6a828_500x100.html"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\images\\ui-bg_highlight-soft_75_ffe45c_1x100.html",
+      "PackagePath": "staticwebassets\\Frontend\\css\\images\\ui-bg_highlight-soft_75_ffe45c_1x100.html"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\images\\ui-icons_222222_256x240.html",
+      "PackagePath": "staticwebassets\\Frontend\\css\\images\\ui-icons_222222_256x240.html"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\images\\ui-icons_228ef1_256x240.html",
+      "PackagePath": "staticwebassets\\Frontend\\css\\images\\ui-icons_228ef1_256x240.html"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\images\\ui-icons_ef8c08_256x240.html",
+      "PackagePath": "staticwebassets\\Frontend\\css\\images\\ui-icons_ef8c08_256x240.html"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\images\\ui-icons_ffd27a_256x240.html",
+      "PackagePath": "staticwebassets\\Frontend\\css\\images\\ui-icons_ffd27a_256x240.html"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\images\\ui-icons_ffffff_256x240.html",
+      "PackagePath": "staticwebassets\\Frontend\\css\\images\\ui-icons_ffffff_256x240.html"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\plugins.css",
+      "PackagePath": "staticwebassets\\Frontend\\css\\plugins.css"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\css\\responsive.css",
+      "PackagePath": "staticwebassets\\Frontend\\css\\responsive.css"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-brands-400.svg",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-brands-400.svg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-brands-400d41d.eot",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-brands-400d41d.eot"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-regular-400.svg",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-regular-400.svg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-regular-400d41d.eot",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-regular-400d41d.eot"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-solid-900.svg",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-solid-900.svg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\fa-solid-900d41d.eot",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\fa-solid-900d41d.eot"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\icomoon5e8d.eot",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\icomoon5e8d.eot"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\icomoon5e8d.svg",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\icomoon5e8d.svg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\icomoon5e8d.ttf",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\icomoon5e8d.ttf"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\fonts\\icomoon5e8d.woff",
+      "PackagePath": "staticwebassets\\Frontend\\fonts\\icomoon5e8d.woff"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\ad1.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\ad1.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\ad2.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\ad2.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\avatar.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\avatar.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\avatar2.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\avatar2.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\avatar3.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\avatar3.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\b-bdr.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\b-bdr.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\b-bg.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\b-bg.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\b-bg2.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\b-bg2.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\b-bg3.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\b-bg3.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\b-bg4.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\b-bg4.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\b-bg5.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\b-bg5.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\b-bg6.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\b-bg6.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\b-bg7.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\b-bg7.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\b-bg8.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\b-bg8.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\hbdr.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\hbdr.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img01.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img01.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img02.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img02.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img03.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img03.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img04.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img04.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img05.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img05.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img06.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img06.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img07.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img07.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img08.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img08.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img09.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img09.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img10.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img10.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img11.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img11.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img12.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img12.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img13.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img13.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img14.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img14.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img15.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img15.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img16.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img16.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img17.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img17.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img18.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img18.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img19.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img19.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img20.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img20.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img21.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img21.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img22.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img22.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img23.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img23.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img24.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img24.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img25.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img25.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img26.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img26.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img27.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img27.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img28.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img28.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img29.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img29.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img30.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img30.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img31.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img31.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img32.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img32.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img34.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img34.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img36.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img36.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img37.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img37.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img38.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img38.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img39.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img39.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img40.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img40.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img41.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img41.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img42.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img42.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img43.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img43.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img44.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img44.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img45.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img45.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img46.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img46.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img47.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img47.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img48.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img48.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img49.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img49.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img50.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img50.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img51.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img51.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img52.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img52.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img53.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img53.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img54.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img54.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img55.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img55.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img56.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img56.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img57.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img57.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img58.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img58.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img59.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img59.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img60.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img60.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img61.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img61.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img62.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img62.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img63.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img63.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img64.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img64.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img65.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img65.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img66.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img66.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img67.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img67.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img68.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img68.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img69.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img69.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img70.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img70.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img71.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img71.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img72.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img72.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img73.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img73.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img74.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img74.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img75.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img75.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img76.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img76.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img77.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img77.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img78.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img78.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img79.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img79.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img80.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img80.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img81.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img81.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img82.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img82.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img83.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img83.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\img84.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\img84.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\logo.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\logo.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\n-bg.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\n-bg.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\n-bg2.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\n-bg2.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\n-bg3.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\images\\n-bg3.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\p-logo1.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\p-logo1.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\p-logo2.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\p-logo2.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\p-logo3.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\p-logo3.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\p-logo4.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\p-logo4.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\p-logo5.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\p-logo5.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\p-logo6.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\p-logo6.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\images\\signature.png",
+      "PackagePath": "staticwebassets\\Frontend\\images\\signature.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\index.css",
+      "PackagePath": "staticwebassets\\Frontend\\index.css"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\index.js",
+      "PackagePath": "staticwebassets\\Frontend\\index.js"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\Frontend\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\js\\jquery-3.4.1.min.js",
+      "PackagePath": "staticwebassets\\Frontend\\js\\jquery-3.4.1.min.js"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\js\\jqueryCustome.js",
+      "PackagePath": "staticwebassets\\Frontend\\js\\jqueryCustome.js"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\js\\popper.min.js",
+      "PackagePath": "staticwebassets\\Frontend\\js\\popper.min.js"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\sen.jpg",
+      "PackagePath": "staticwebassets\\Frontend\\sen.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Frontend\\style.css",
+      "PackagePath": "staticwebassets\\Frontend\\style.css"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Adv\\133352151237997483_ad2.jpg",
+      "PackagePath": "staticwebassets\\Upload\\Adv\\133352151237997483_ad2.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Adv\\133390668227422407_ad1.jpg",
+      "PackagePath": "staticwebassets\\Upload\\Adv\\133390668227422407_ad1.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Adv\\133392223497333770_ad1.jpg",
+      "PackagePath": "staticwebassets\\Upload\\Adv\\133392223497333770_ad1.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Adv\\133392223590035619_ad2.jpg",
+      "PackagePath": "staticwebassets\\Upload\\Adv\\133392223590035619_ad2.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\News\\133347247297665903_user2-160x160.jpg",
+      "PackagePath": "staticwebassets\\Upload\\News\\133347247297665903_user2-160x160.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\News\\133391614789905042_img69.jpg",
+      "PackagePath": "staticwebassets\\Upload\\News\\133391614789905042_img69.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\News\\133391615007073163_img31.jpg",
+      "PackagePath": "staticwebassets\\Upload\\News\\133391615007073163_img31.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\News\\133391615269186762_img71.jpg",
+      "PackagePath": "staticwebassets\\Upload\\News\\133391615269186762_img71.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\News\\133391615416808370_img70.jpg",
+      "PackagePath": "staticwebassets\\Upload\\News\\133391615416808370_img70.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Products\\133391854064135512_img02.jpg",
+      "PackagePath": "staticwebassets\\Upload\\Products\\133391854064135512_img02.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Products\\133391854164904297_img03.jpg",
+      "PackagePath": "staticwebassets\\Upload\\Products\\133391854164904297_img03.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Products\\133391854290956244_img04.jpg",
+      "PackagePath": "staticwebassets\\Upload\\Products\\133391854290956244_img04.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Products\\133391854385797063_img05.jpg",
+      "PackagePath": "staticwebassets\\Upload\\Products\\133391854385797063_img05.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Products\\133391854485902560_img06.jpg",
+      "PackagePath": "staticwebassets\\Upload\\Products\\133391854485902560_img06.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Products\\133391854578855281_img07.jpg",
+      "PackagePath": "staticwebassets\\Upload\\Products\\133391854578855281_img07.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Products\\133391854693231068_img08.jpg",
+      "PackagePath": "staticwebassets\\Upload\\Products\\133391854693231068_img08.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Products\\133391854806934511_img09.jpg",
+      "PackagePath": "staticwebassets\\Upload\\Products\\133391854806934511_img09.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Products\\133391855005396760_img11.jpg",
+      "PackagePath": "staticwebassets\\Upload\\Products\\133391855005396760_img11.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Products\\133391855147679446_img12.jpg",
+      "PackagePath": "staticwebassets\\Upload\\Products\\133391855147679446_img12.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Products\\133391855276050073_img13.jpg",
+      "PackagePath": "staticwebassets\\Upload\\Products\\133391855276050073_img13.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Products\\133391855408871004_img15.jpg",
+      "PackagePath": "staticwebassets\\Upload\\Products\\133391855408871004_img15.jpg"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Slides\\133390606145367725_img77.png",
+      "PackagePath": "staticwebassets\\Upload\\Slides\\133390606145367725_img77.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Slides\\133390606350263342_img78.png",
+      "PackagePath": "staticwebassets\\Upload\\Slides\\133390606350263342_img78.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Slides\\133390606570756739_img79.png",
+      "PackagePath": "staticwebassets\\Upload\\Slides\\133390606570756739_img79.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Slides\\133391860984909385_img77.png",
+      "PackagePath": "staticwebassets\\Upload\\Slides\\133391860984909385_img77.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Slides\\133391861086753040_img78.png",
+      "PackagePath": "staticwebassets\\Upload\\Slides\\133391861086753040_img78.png"
+    },
+    {
+      "Id": "D:\\project\\wwwroot\\Upload\\Slides\\133391861199792790_img79.png",
+      "PackagePath": "staticwebassets\\Upload\\Slides\\133391861199792790_img79.png"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.project.props",
+      "PackagePath": "build\\project.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.project.props",
+      "PackagePath": "buildMultiTargeting\\project.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.project.props",
+      "PackagePath": "buildTransitive\\project.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.project.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
